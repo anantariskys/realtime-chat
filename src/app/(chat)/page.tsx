@@ -1,5 +1,5 @@
+import { ChatPage } from "@/components/pages/(chat)/chat";
+
 export default function Page() {
-  return (
-   <div>test</div>
-  );
+  return <ChatPage />;
 }
