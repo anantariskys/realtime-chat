@@ -1,5 +1,10 @@
-import ChatLayout from "@/components/layout/chatLayout";
+import ChatLayout from "@/components/layouts/chatLayout";
+import { ChatProvider } from "@/contexts/chat-context";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <ChatLayout>{children}</ChatLayout>;
+  return (
+    <ChatProvider>
+      <ChatLayout>{children}</ChatLayout>
+    </ChatProvider>
+  );
 }
