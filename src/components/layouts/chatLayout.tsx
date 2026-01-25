@@ -1,6 +1,5 @@
 "use client";
-import { Sidebar } from "../shared/sidebar";
-
+import { Sidebar } from "@/features/chat/components/sidebar/Sidebar";
 import { useChat } from "@/contexts/chat-context";
 
 export default function ChatLayout({
@@ -8,14 +7,14 @@ export default function ChatLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { chats, activeChatId, setActiveChatId } = useChat();
+  const { chats, activeChatId, handleChatSelect } = useChat();
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-background">
       <Sidebar
         chats={chats}
         activeChatId={activeChatId}
-        onChatSelect={setActiveChatId}
+        onChatSelect={handleChatSelect}
       />
       {children}
     </div>
