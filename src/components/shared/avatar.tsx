@@ -53,7 +53,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ({ name, src, isGroup, isOnline, size, className, ...props }, ref) => {
     const initials = React.useMemo(
       () =>
-        name
+        (name ?? '')
           .split(' ')
           .map((n) => n[0])
           .join('')
@@ -67,7 +67,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       'bg-accent-foreground/80',
       'bg-secondary-foreground/70',
     ];
-    const colorIndex = name.length % bgColors.length;
+    const colorIndex = (name?.length || 0) % bgColors.length;
 
     const iconSizes: Record<string, number> = {
       sm: 14,
